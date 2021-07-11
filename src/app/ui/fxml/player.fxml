@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.MediaView?>
+<StackPane fx:id="stackPane" prefHeight="517.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.controller.Controller">
+    <children>
+        <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="500.0"/>
+        <AnchorPane fx:id="bottomMenuAnchorPane" maxHeight="-Infinity" onMouseEntered="#onMouseEntered"
+                    onMouseExited="#onMouseExited" StackPane.alignment="BOTTOM_CENTER">
+            <children>
+                <VBox layoutX="16.0" layoutY="465.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <AnchorPane>
+                            <VBox.margin>
+                                <Insets bottom="8.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label fx:id="labelCurrentPlayTime" prefHeight="25.0" prefWidth="38.0" text="0:00:00"
+                                       textFill="white" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"/>
+                                <Slider fx:id="sliderTime" layoutX="58.0" prefHeight="25.0" prefWidth="343.0"
+                                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="58.0"
+                                        AnchorPane.rightAnchor="67.0"/>
+                                <Button fx:id="btnLoop" mnemonicParsing="false" onAction="#onActionLoop" text="Loop"
+                                        AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <children>
+                                <HBox layoutX="3.0" prefHeight="26.0" prefWidth="154.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0">
+                                    <children>
+                                        <Slider fx:id="sliderVolume" prefHeight="60.0" prefWidth="113.0"/>
+                                        <Button fx:id="onMute" mnemonicParsing="false" onAction="#onActionMute"
+                                                text="Mute"/>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="TOP_CENTER" layoutX="154.0" layoutY="1.0" prefHeight="25.0"
+                                      prefWidth="598.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="141.0">
+                                    <children>
+                                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onPrevious"
+                                                text="&lt;&lt;"/>
+                                        <Button fx:id="btnTimeBack" mnemonicParsing="false" onAction="#onActionTimeBack"
+                                                text="&lt;"/>
+                                        <Button fx:id="btnStartPause" mnemonicParsing="false" onAction="#onStartPause"
+                                                text="Play/Pause"/>
+                                        <Button fx:id="btnStop" mnemonicParsing="false" onAction="#onStop" text="Stop"/>
+                                        <Button fx:id="btnTimeForward" mnemonicParsing="false"
+                                                onAction="#onActionTimeForward" text="&gt;"/>
+                                        <Button fx:id="btnNext" mnemonicParsing="false" onAction="#onNext"
+                                                text="&gt;&gt;"/>
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="430.0" layoutY="1.0" AnchorPane.rightAnchor="0.0">
+                                    <children>
+                                        <Button fx:id="btnFullScreen" mnemonicParsing="false"
+                                                onAction="#onActionFullScreen" text="Full"/>
+                                        <Button fx:id="btnPlayList" contentDisplay="CENTER" mnemonicParsing="false"
+                                                onAction="#onActionOpenListView" text="List"/>
+                                        <Button fx:id="btnSettings" mnemonicParsing="false"
+                                                onAction="#onActionOpenSettings" text="Settings"/>
+                                        <Button fx:id="btnInfo" mnemonicParsing="false" onAction="#onActionOpenInfo"
+                                                text="More"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+            <StackPane.margin>
+                <Insets bottom="8.0" left="16.0" right="16.0"/>
+            </StackPane.margin>
+        </AnchorPane>
+        <AnchorPane fx:id="listViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+                    StackPane.alignment="TOP_RIGHT">
+            <children>
+                <VBox fillWidth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <AnchorPane prefHeight="25.0" prefWidth="248.0">
+                            <children>
+                                <Button fx:id="btnOpenFile" mnemonicParsing="false" onAction="#onActionOnlyOpen"
+                                        text="Open" AnchorPane.leftAnchor="0.0"/>
+                                <Button fx:id="btnOpenAndAddToList" layoutX="48.0" maxWidth="-Infinity"
+                                        mnemonicParsing="false" onAction="#onActionAddToPlayList" prefHeight="25.0"
+                                        prefWidth="154.0" text="Open &amp; Add to List" AnchorPane.leftAnchor="48.0"
+                                        AnchorPane.rightAnchor="46.0"/>
+                                <Button fx:id="btnClosePlayList" layoutX="200.0" mnemonicParsing="false"
+                                        onAction="#onActionCloseListView" text="Close" AnchorPane.rightAnchor="0.0"/>
+                            </children>
+                        </AnchorPane>
+                        <ListView fx:id="listViewPlayList" onMouseClicked="#onActionListItemClicked"/>
+                    </children>
+                </VBox>
+            </children>
+            <StackPane.margin>
+                <Insets/>
+            </StackPane.margin>
+        </AnchorPane>
+    </children>
+</StackPane>
